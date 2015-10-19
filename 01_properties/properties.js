@@ -1,11 +1,14 @@
-var object;
-var setSomePropertiesOn = function(object) {
-	object.x = 7;
-	object['y'] = 8;
+var object = {};
 
-	var onePlus = function(num) {
-		return num + 1;
-	}
+var setSomePropertiesOn = function(object){
+    
+    object.x = 7;
+    object['y'] = 8;
+    
+    var onePlus = function(number){
+        return number + 1;
+    }
+    
+    object['onePlus'] = onePlus;
 
-	object['onePlus'] = onePlus;
 }
