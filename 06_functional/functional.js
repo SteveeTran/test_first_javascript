@@ -102,12 +102,15 @@ function every(arr, func){
 
 
   for(var i = 0; i < arr.length; i++){
-    if((arr[i] % 2 == 1) || ((arr[i] != 0) && (arr[i] == false))){
-      if(arr[i] == false){
-        bool = false;
+    console.log("Enter for");
+    if((arr[i] % 2 === 1) || arr[i] === false || ((arr[i] != 0) && (arr[i] === false))){
+      console.log("Enter if 1");
+      if(arr[i] === false){
+        console.log("Enter if 2");
+        return false;
       }
-
-      if(bool == false){
+      if(arr[i] % 2 === 1 && arr[i] != true){
+        console.log("Enter if 3");
         return false;
       }
     }
@@ -115,3 +118,5 @@ function every(arr, func){
 
   return true;
 }
+
+console.log(every([true, true, true]))
