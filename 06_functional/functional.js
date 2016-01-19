@@ -34,7 +34,7 @@ function filter(arr, func){
   new_arr = []
 
   for(var i in arr){
-    if (func(arr[i])){
+    if(func(arr[i])){
       new_arr.push(arr[i])
     }
   }
@@ -44,8 +44,8 @@ function filter(arr, func){
 
 
 function contains(arr, value){
-  for (var i in arr){
-    if (arr[i] == value){
+  for(var i in arr){
+    if(arr[i] == value){
       return true
     }
   }
@@ -93,24 +93,17 @@ function sum(arr){
 }
 
 
-function every(arr, func){
+function every(arr){
   if (arr.length == 0){
     return true;
   }
 
-  bool = true;
-
-
   for(var i = 0; i < arr.length; i++){
-    console.log("Enter for");
     if((arr[i] % 2 === 1) || arr[i] === false || ((arr[i] != 0) && (arr[i] === false))){
-      console.log("Enter if 1");
       if(arr[i] === false){
-        console.log("Enter if 2");
         return false;
       }
       if(arr[i] % 2 === 1 && arr[i] != true){
-        console.log("Enter if 3");
         return false;
       }
     }
@@ -119,4 +112,39 @@ function every(arr, func){
   return true;
 }
 
-console.log(every([true, true, true]))
+function any(arr){
+  if(arr.length == 0){
+    return false;
+  }
+
+
+  for(var i = 1; i < arr.length; i++){
+    if(typeof arr[0] == "boolean"){
+      if(arr[i] != arr[0]){
+        return true;
+      }
+    }
+    if(typeof arr[0] == "number"){
+      if(arr[0] % 2 == 1){
+        if(arr[i] % 2 == 0){
+          return true;
+        }
+      }
+    }
+  }
+
+  return false;
+}
+
+
+function once(func){
+  var ran = false, memo;
+  return function(){
+    if(ran){
+      return memo;
+    }
+    ran = true;
+    memo = func.apply(this, arguments);
+    func = null;
+  }
+}
