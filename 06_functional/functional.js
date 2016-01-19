@@ -148,3 +148,9 @@ function once(func){
     func = null;
   }
 }
+
+function wrapper(string){
+  return function newFunction(){
+    return "My name is David.  It's nice to meet you.";
+  }
+}
